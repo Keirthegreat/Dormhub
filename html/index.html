@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DormHub - Find Your Perfect Student Housing</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="brand-section">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <!-- SVG of the bed icon -->
+                    <svg viewBox="0 0 24 24" fill="#002147">
+                        <path d="M20 12v-2c0-2.2-1.8-4-4-4H8c-2.2 0-4 1.8-4 4v2c-1.1 0-2 .9-2 2v6h2v-2h16v2h2v-6c0-1.1-.9-2-2-2zm-4-4c1.1 0 2 .9 2 2v2H6v-2c0-1.1.9-2 2-2h8z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">DORMHUB</div>
+            </div>
+            <p class="brand-description">
+                Find your perfect student housing with DormHub. We connect students with quality accommodations and trusted landlords for a seamless housing experience.
+            </p>
+        </div>
+
+        <div class="form-container">
+            <div class="toggle">
+                <button id="loginBtn" class="active">Login</button>
+                <button id="signupBtn">Signup</button>
+            </div>
+
+            <form id="loginForm" class="form fade-in">
+                <h2>Welcome Back!</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <form id="signupForm" class="form hidden">
+                <h2>Create Account</h2>
+                <input type="text" id="signupName" placeholder="Full Name" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <div class="user-type">
+                    <label>
+                        <input type="radio" name="userType" value="Tenant" required>
+                        Tenant
+                    </label>
+                    <label>
+                        <input type="radio" name="userType" value="Landlord" required>
+                        Landlord
+                    </label>
+                </div>
+                <div class="tos">
+                    <label>
+                        <input type="checkbox" id="acceptTos" required>
+                        I agree to the <a href="/terms-of-service.html" target="_blank">Terms of Service</a> and <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>.
+                    </label>
+                </div>
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+    <script src="/js/login.js"></script>
+</body>
+</html>

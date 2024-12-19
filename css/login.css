@@ -1,0 +1,375 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #002147 0%, #001529 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Add animated background elements */
+body::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  top: -200px;
+  right: -200px;
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
+  bottom: -150px;
+  left: -150px;
+  border-radius: 50%;
+  animation: float 20s infinite linear reverse;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-section {
+  flex: 1;
+  color: white;
+  animation: fadeSlideIn 1s ease;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.logo-icon:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.brand-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  animation: scaleIn 0.5s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-5px);
+}
+
+.toggle {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.toggle button {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.toggle button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #002147;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.toggle button:hover::after {
+  width: 100%;
+}
+
+.toggle button.active {
+  color: #002147;
+  font-weight: 600;
+}
+
+.toggle button.active::after {
+  width: 100%;
+}
+
+.form {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.form.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form.hidden {
+  display: none;
+}
+
+.form h2 {
+  color: #002147;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.form h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #002147;
+  border-radius: 3px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+input:focus {
+  outline: none;
+  border-color: #002147;
+  box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.1);
+  transform: translateY(-2px);
+}
+
+.user-type {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+}
+
+.user-type label {
+  position: relative;
+  padding: 1.2rem 2rem;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+  background: white;
+}
+
+.user-type label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-type input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.user-type label:has(input:checked) {
+  border-color: #002147;
+  background: rgba(0, 33, 71, 0.05);
+  color: #002147;
+  font-weight: 600;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 33, 71, 0.15);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #002147 0%, #003166 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #003166 0%, #004185 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 33, 71, 0.3);
+}
+
+button[type="submit"]:hover::before {
+  left: 100%;
+}
+
+@keyframes fadeSlideIn {
+  from {
+      opacity: 0;
+      transform: translateX(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+@keyframes float {
+  from {
+      transform: rotate(0deg) translate(20px) rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg) translate(20px) rotate(-360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1.5rem;
+  }
+  
+  .brand-section {
+      text-align: center;
+      padding: 0 1rem;
+  }
+  
+  .logo-container {
+      justify-content: center;
+  }
+  
+  .form-container {
+      width: 100%;
+      padding: 2rem 1.5rem;
+  }
+  
+  .user-type {
+      flex-direction: column;
+      gap: 1rem;
+  }
+}
+
+
+
+
+
+
+.tos {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.tos label {
+  display: flex;
+  align-items: center;
+}
+
+.tos input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.tos a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tos a:hover {
+  text-decoration: underline;
+}
+
